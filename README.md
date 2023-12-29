@@ -26,6 +26,7 @@ FLAGS:
     --list-fonts              List all available fonts in your system
     --no-line-number          Hide the line number
     --no-window-access-bar    Hide the window access bar
+    --font-size <SIZE>        Change the font size [default: 24px]
     -v, --version             Show Version
 ```
 
@@ -88,7 +89,7 @@ cd cmd/germanium && go install
 
 #### Requirements
 
-- go1.16
+- Go (1.17 or 1.18)
 
 ## Related Projects
 

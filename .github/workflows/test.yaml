@@ -9,12 +9,11 @@ on:
   pull_request:
     paths-ignore:
     - 'README.md'
-    - '.github/**'
 jobs:
   test:
     strategy:
       matrix:
-        go-version: [1.16.x]
+        go-version: [1.17.x, 1.18.x]
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -25,6 +24,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Build
-      run: go build
+      run: make build
+    - uses: dominikh/staticcheck-action@v1.2.0
+      name: staticcheck
+      with:
+        version: "2022.1.3"
+        install-go: false
     - name: Test
       run: make test
